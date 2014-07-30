@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.openxc.VehicleManager;
+
 import org.apache.cordova.Config;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
@@ -14,8 +16,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends Activity implements CordovaInterface {
+    private VehicleManager mVehicleManager;
+    private CordovaWebView cwv;
 
-    CordovaWebView cwv;
     private final ExecutorService mThreadPool = Executors.newCachedThreadPool();
 
     /* Called when the activity is first created. */
