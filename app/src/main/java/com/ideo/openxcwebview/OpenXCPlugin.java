@@ -1,5 +1,7 @@
 package com.ideo.openxcwebview;
 
+import android.util.Log;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
@@ -8,7 +10,10 @@ import org.json.JSONException;
 class OpenXCPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if(action.equals("OpenXCMessage")) {
+        Log.i("OPENXCPLUGIN", action);
+        if(action.equals("message")) {
+            MainActivity activity = (MainActivity) cordova.getActivity();
+            sendOpenSCMessage(activity.getEngineSpeed(), callbackContext);
             return true;
         }
         return false;

@@ -29,7 +29,12 @@ public class MainActivity extends Activity implements CordovaInterface {
     private static final String TAG = "StarterActivity";
 
     private VehicleManager mVehicleManager;
-    private CordovaWebView cwv;
+    public CordovaWebView cwv;
+    private String mEngineSpeed;
+
+    public String getEngineSpeed() {
+        return mEngineSpeed;
+    }
 
     private final ExecutorService mThreadPool = Executors.newCachedThreadPool();
 
@@ -114,6 +119,7 @@ public class MainActivity extends Activity implements CordovaInterface {
             // update the UI to display the new value. First we cast the generic
             // Measurement back to the type we know it to be, an EngineSpeed.
             final EngineSpeed speed = (EngineSpeed) measurement;
+            mEngineSpeed = speed.toString();
             // In order to modify the UI, we have to make sure the code is
             // running on the "UI thread" - Google around for this, it's an
             // important concept in Android.
