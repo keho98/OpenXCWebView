@@ -47,4 +47,7 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
+    <feature name="OpenXCMessage">
+        <param name="android-package" value="com.ideo.openxcwebview.OpenXCPlugin" />
+    </feature>
 </widget>

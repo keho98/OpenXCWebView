@@ -93,6 +93,7 @@ public class MainActivity extends Activity implements CordovaInterface {
     @Override
     public void onResume() {
         super.onResume();
+        cwv.loadUrl(Config.getStartUrl());
         // When the activity starts up or returns from the background,
         // re-connect to the VehicleManager so we can receive updates.
         if(mVehicleManager == null) {
@@ -116,15 +117,17 @@ public class MainActivity extends Activity implements CordovaInterface {
             // In order to modify the UI, we have to make sure the code is
             // running on the "UI thread" - Google around for this, it's an
             // important concept in Android.
-            MainActivity.this.runOnUiThread(new Runnable() {
-                public void run() {
-                    // Finally, we've got a new value and we're running on the
-                    // UI thread - we set the text of the EngineSpeed view to
-                    // the latest value
-                    //mEngineSpeedView.setText("Engine speed (RPM): "
-                    //        + speed.getValue().doubleValue());
-                }
-            });
+            Log.i(TAG, "Engine speed: " + speed.toString());
+//            MainActivity.this.runOnUiThread(new Runnable() {
+//                public void run() {
+//                    // Finally, we've got a new value and we're running on the
+//                    // UI thread - we set the text of the EngineSpeed view to
+//                    // the latest value
+//                    return;
+//                    //mEngineSpeedView.setText("Engine speed (RPM): "
+//                    //        + speed.getValue().doubleValue());
+//                }
+//            });
         }
     };
 
