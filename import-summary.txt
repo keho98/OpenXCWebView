@@ -1,0 +1,73 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .DS_Store
+* javadoc/
+* javadoc/overview.html
+* pom.xml
+* proguard.cfg
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+guava-15.0.jar => com.google.guava:guava:15.0
+protobuf-java-2.5.0.jar => com.google.protobuf:protobuf-java:2.5.0
+
+Potentially Missing Dependency:
+-------------------------------
+When we replaced the following .jar files with a Gradle dependency, we
+inferred the dependency version number from the filename. This
+specific version may not actually be available from the repository.
+If you get a build error stating that the dependency is missing, edit
+the version number to for example "+" to pick up the latest version
+instead. (This may require you to update your code if the library APIs
+have changed.)
+
+protobuf-java-2.5.0.jar => version 2.5.0 in com.google.protobuf:protobuf-java:2.5.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* -it/libs/commons-io-2.1.jar => openxc/libs/commons-io-2.1.jar
+* -it/libs/hamcrest-all-1.3.jar => openxc/libs/hamcrest-all-1.3.jar
+* -it/libs/mockito-core-1.9.0.jar => openxc/libs/mockito-core-1.9.0.jar
+* -it/res/ => openxc/src/androidTest/res/
+* -it/src/ => openxc/src/androidTest/java/
+* AndroidManifest.xml => openxc/src/main/AndroidManifest.xml
+* libs/jackson-core-2.2.3.jar => openxc/libs/jackson-core-2.2.3.jar
+* libs/support-v4-19.0.0.jar => openxc/libs/support-v4-19.0.0.jar
+* res/ => openxc/src/main/res/
+* src/ => openxc/src/main/java/
+* src/com/openxc/remote/RawMeasurement.aidl => openxc/src/main/aidl/com/openxc/remote/RawMeasurement.aidl
+* src/com/openxc/remote/VehicleServiceInterface.aidl => openxc/src/main/aidl/com/openxc/remote/VehicleServiceInterface.aidl
+* src/com/openxc/remote/VehicleServiceListener.aidl => openxc/src/main/aidl/com/openxc/remote/VehicleServiceListener.aidl
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
