@@ -44,7 +44,6 @@
       <preference name="disallowOverscroll" value="true" />
     -->
     <!-- This is required for native Android hooks -->
-    <plugin name="OpenXCMessage" value="com.ideo.openxcwebview.OpenXCPlugin" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>

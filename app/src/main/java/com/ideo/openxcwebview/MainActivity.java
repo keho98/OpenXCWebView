@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements CordovaInterface {
     public CordovaWebView cwv;
     private String mEngineSpeed;
 
+
     public String getEngineSpeed() {
         return mEngineSpeed;
     }
@@ -124,16 +125,18 @@ public class MainActivity extends Activity implements CordovaInterface {
             // running on the "UI thread" - Google around for this, it's an
             // important concept in Android.
             Log.i(TAG, "Engine speed: " + speed.toString());
-//            MainActivity.this.runOnUiThread(new Runnable() {
-//                public void run() {
-//                    // Finally, we've got a new value and we're running on the
-//                    // UI thread - we set the text of the EngineSpeed view to
-//                    // the latest value
-//                    return;
-//                    //mEngineSpeedView.setText("Engine speed (RPM): "
-//                    //        + speed.getValue().doubleValue());
-//                }
-//            });
+            MainActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    // Finally, we've got a new value and we're running on the
+                    // UI thread - we set the text of the EngineSpeed view to
+                    // the latest value
+                    cwv.evaluateJavascript("alert('" + speed.toString() + "')", null);
+                    cwv.sendJavascript("document.addEventListener('deviceready', function() {" + "window.document.getElementById('speed').innerHTML = '" + speed.toString() + "';});)()");
+                    return;
+                    //mEngineSpeedView.setText("Engine speed (RPM): "
+                    //        + speed.getValue().doubleValue());
+                }
+            });
         }
     };
 
